@@ -39,9 +39,9 @@ This is the message of the user ${input_text}.
 
     body = str.encode(json.dumps(data))
 
-    url = os.getenv("URL")
+    url = st.secrets["URL"]
     # Replace this with the primary/secondary key or AMLToken for the endpoint
-    api_key = os.getenv("KEY")
+    api_key = st.secrets["KEY"]
     if not api_key:
         raise Exception("A key should be provided to invoke the endpoint")
 
