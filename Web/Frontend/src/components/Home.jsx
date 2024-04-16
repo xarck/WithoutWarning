@@ -9,6 +9,7 @@ const Home = () => {
                 value={msg}
                 onChange={(e) => setMsg(e.target.value)}
             ></textarea>
+            <br />
             <button>Submit</button>
         </div>
     );

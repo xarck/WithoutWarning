@@ -4,7 +4,9 @@ import json
 import urllib.request
 import json
 import os
+from dotenv import load_dotenv
 import ssl
+load_dotenv()
 
 def allowSelfSignedHttps(allowed):
     if allowed and not os.environ.get('PYTHONHTTPSVERIFY', '') and getattr(ssl, '_create_unverified_context', None):
@@ -37,9 +39,9 @@ This is the message of the user ${input_text}.
 
     body = str.encode(json.dumps(data))
 
-    url = 'https://knacktocode-pmqaa.eastus2.inference.ml.azure.com/score'
+    url = os.getenv("URL")
     # Replace this with the primary/secondary key or AMLToken for the endpoint
-    api_key = '4knTxH4pDTjlu6ZqxAdT0hxMDGROyKtQ'
+    api_key = os.getenv("KEY")
     if not api_key:
         raise Exception("A key should be provided to invoke the endpoint")
 
