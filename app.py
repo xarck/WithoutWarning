@@ -6,7 +6,6 @@ import json
 import os
 
 import ssl
-load_dotenv()
 
 def allowSelfSignedHttps(allowed):
     if allowed and not os.environ.get('PYTHONHTTPSVERIFY', '') and getattr(ssl, '_create_unverified_context', None):
